@@ -1,6 +1,10 @@
 package com.pluralsight;
 
+import java.time.LocalDateTime;
+
 public class Employee {
+    LocalDateTime currentTime = LocalDateTime.now();
+
     private int employeeId;
     private String name;
     private String department;
@@ -11,6 +15,10 @@ public class Employee {
    private double totalPay;
    private double regularHours;
    private double overtimeHours;
+
+   private double punchIn;
+   private double punchOut;
+   private double time;
 
     public double getTotalPay() {
         if (hoursWorked > 40) {
@@ -37,5 +45,15 @@ public class Employee {
     public double getOvertimePayRate() {
         overtimePayRate = payRate * 1.5F;
         return overtimePayRate;
+    }
+
+    public void punchIn(double time) {      //finish this later, sleep is needed
+    }
+    public void punchIn() {                 //punchOut time - punchIn time = time.
+    }
+    public void punchOut(double time) {
+    }
+    public void punchOut() {
+
     }
 }

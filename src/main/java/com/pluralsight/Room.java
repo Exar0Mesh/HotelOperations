@@ -7,6 +7,10 @@ public class Room {
     private boolean dirty;
     private boolean available;
 
+    private boolean checkIn;
+    private boolean checkOut;
+    private String cleanRoom;
+
     public int getNumberOfBeds() {
         return numberOfBeds;
     }
@@ -19,6 +23,9 @@ public class Room {
     public boolean isDirty() {
         return dirty;
     }
+    public String getCleanRoom() {
+        return cleanRoom;
+    }
     public boolean isAvailable() {
         if (dirty = false) {
             if (occupied = false) {
@@ -28,5 +35,18 @@ public class Room {
             available = false;
         }
         return available;
+    }
+
+    public boolean isCheckIn() {
+        if (checkIn = true) {
+            checkIn = dirty && occupied;
+        }
+        return checkIn;
+    }
+    public boolean isCheckout() {
+        if (checkOut = true) {
+            System.out.println(cleanRoom);
+        }
+        return checkOut;
     }
 }
