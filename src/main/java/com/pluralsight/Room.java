@@ -5,48 +5,42 @@ public class Room {
     private double price;
     private boolean occupied;
     private boolean dirty;
-    private boolean available;
-
-    private boolean checkIn;
-    private boolean checkOut;
     private String cleanRoom;
+
+    public Room(boolean occupied, boolean dirty, double price, int numberOfBeds) {
+        this.occupied = occupied;
+        this.dirty = dirty;
+        this.price = price;
+        this.numberOfBeds = numberOfBeds;
+    }
+    public void cleanRoom() {
+        this.dirty = false;
+    }
+    public void checkout() {
+        this.occupied = false;
+    }
+
+    public void checkIn() {
+        if(this.isAvailable()) {    //If it is not available, then it is false
+            this.occupied = true;
+            this.dirty = true;
+        } else {
+            System.out.println("Sorry, room is not available");
+        }
+    }
+
+    public void setOccupied(boolean occupied) {     //teacher did this
+        this.occupied = occupied;
+    }
+
+    public boolean isAvailable() {
+        return (!this.occupied && !this.dirty);
+    }
 
     public int getNumberOfBeds() {
         return numberOfBeds;
     }
     public double getPrice() {
         return price;
-    }
-    public boolean isOccupied() {
-        return occupied;
-    }
-    public boolean isDirty() {
-        return dirty;
-    }
-    public String getCleanRoom() {
-        return cleanRoom;
-    }
-    public boolean isAvailable() {
-        if (dirty = false) {
-            if (occupied = false) {
-                available = true;
-            }
-        } else {
-            available = false;
-        }
-        return available;
-    }
-
-    public boolean isCheckIn() {
-        if (checkIn = true) {
-            checkIn = dirty && occupied;
-        }
-        return checkIn;
-    }
-    public boolean isCheckout() {
-        if (checkOut = true) {
-            System.out.println(cleanRoom);
-        }
-        return checkOut;
     }
 }
